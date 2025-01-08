@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+	<html class="sl-root decks export offline loaded">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover, minimal-ui">
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+		<link rel="manifest" href='data:application/manifest+json,{"display": "standalone", "name": "Let&#39;s shadow a Python release: insights from packaging, distribution, and supply-chain security"}' />
+		<title>Let&#39;s shadow a Python release: insights from packaging, distribution, and supply-chain security</title>
+
+
+		<link rel="stylesheet" type="text/css" href="lib/offline-v2.css">
+
+
+
+	</head>
+	<body class="reveal-viewport theme-font-opensans theme-color-white-blue">
+		<div class="reveal">
+			<div class="slides">
+				<section data-id="b7ba88e4657d5b788bc734eb3f2241a2"><div class="sl-block" data-block-type="text" style="width: 768px; left: 96px; top: 169.5px; height: auto;" data-block-id="30308ca7787305c60d99539bcbf9bf3a">
+							<div class="sl-block-content" style="text-align: left; line-height: 1.04; letter-spacing: -0.1em; font-size: 90%; z-index: 10;" data-has-line-height="" data-has-letter-spacing="" data-placeholder-tag="p" data-placeholder-text="Text">
+								<h1>Let's shadow a Python release: insights from packaging, distribution, and supply-chain security</h1>
+							</div>
+						</div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: 96px; top: 586.5px;" data-name="text-61a993" data-block-id="ab6e99e101e1413f50a4d721aa66f176"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11; text-align: left;"><p>Agriya Khetarpal</p></div></div></section><section data-id="c5b25f5801f88971af166ec950a67e5e"><div class="sl-block" data-block-type="text" style="width: 768px; left: 96px; top: 187.5px; height: auto;" data-block-id="97659e8c761ae69df854be2d500364db">
+							<div class="sl-block-content" style="text-align: left;line-height: 1.04;letter-spacing: -0.1em;font-size: 90%;" data-has-line-height="" data-has-letter-spacing="" data-placeholder-tag="p" data-placeholder-text="Text">
+								<h1>Agenda</h1>
+							</div>
+						</div>
+<div class="sl-block" data-block-type="text" style="width: 768px; left: 97px; top: 326.5px; height: auto;" data-block-id="9194d73473ab4898ed8ff30c76b60c4a">
+							<div class="sl-block-content" style="text-align: left;" data-placeholder-tag="p" data-placeholder-text="Text"><ol>
+<li>The release process for the Python programming language</li>
+<li>The software supply chain in the Python ecosystem</li>
+</ol></div>
+<grammarly-extension data-grammarly-shadow-root="true" style="position: absolute; top: 0px; left: 0px; pointer-events: none; z-index: auto;" class="dnXmp"></grammarly-extension><grammarly-extension data-grammarly-shadow-root="true" style="position: absolute; top: 0px; left: 0px; pointer-events: none; z-index: auto;" class="dnXmp"></grammarly-extension>
+						</div></section><section data-id="a017f98774ec35081152b01b898bed62"><div class="sl-block" data-block-type="text" style="width: 768px; left: 97px; top: 118.5px; height: auto;" data-block-id="f04b25eee68a9d9963406d5077c9f1ac">
+							<div class="sl-block-content" style="text-align: left; line-height: 1.04; letter-spacing: -0.1em; font-size: 90%; z-index: 10;" data-has-line-height="" data-has-letter-spacing="" data-placeholder-tag="p" data-placeholder-text="Text"><h1>CPython 🐍</h1></div>
+						</div>
+<div class="sl-block" data-block-type="text" style="width: 768px; left: 97px; top: 233px; height: auto;" data-block-id="21e9daee088e5a98a54e74a52a30c87a">
+							<div class="sl-block-content" style="text-align: left; z-index: 11;" data-placeholder-tag="p" data-placeholder-text="Text"><ul>
+	<li>The most common (and the reference) implementation of Python</li>
+	<li>Most likely the one you use on a daily basis</li>
+	<li>Other implementations: PyPy, RustPython, Jython, GraalPy, IronPython, Brython, MicroPython, Pyodide, etc.</li>
+</ul></div>
+						</div>
+<div class="sl-block" data-block-type="image" style="width: 182.141px; height: 117px; left: 682.859px; top: 71.5px; min-width: 1px; min-height: 1px;" data-name="image-4a1308" data-block-id="f7d4561195929a4dbea64e0ca926c507"><div class="sl-block-content" style="z-index: 12;"><img class="" data-natural-width="2400" data-natural-height="1350" data-crop-x="0.062161" data-crop-y="0" data-crop-width="0.875678" data-crop-height="1" style="left: -13px; top: 0px; width: 208px; height: 117px;" data-lazy-loaded="" data-src="pydelhi-july-2024/7c6f661ea7085303337afa696450ff48.png"></div></div>
+<div class="sl-block" data-block-type="image" style="width: 222.644px; height: 105.266px; left: 97px; top: 494.725px; min-width: 1px; min-height: 1px;" data-name="image-03e301" data-block-id="374cb1eca8c828388f06d2b3c455e366"><div class="sl-block-content" style="z-index: 13;"><img class="" data-natural-width="2500" data-natural-height="1182" data-lazy-loaded="" data-src="pydelhi-july-2024/7c6dfd0260c27c934e1e260d28bd57fa.png"></div></div>
+<div class="sl-block" data-block-type="image" style="width: 99px; height: 99px; left: 350.5px; top: 473.658px; min-width: 1px; min-height: 1px;" data-name="image-e57b47" data-block-id="e0ae5aaffb72405c6d144c44b1f15875"><div class="sl-block-content" style="z-index: 14;"><img class="" data-natural-width="200" data-natural-height="200" data-lazy-loaded="" data-src="pydelhi-july-2024/488914c4c683d5b0ba7fc12d6aaf0936.png"></div></div>
+<div class="sl-block" data-block-type="image" style="width: 220.871px; height: 99.208px; left: 642.01px; top: 473.658px; min-width: 1px; min-height: 1px;" data-name="image-77e308" data-block-id="d39f87838c348f57efb925030203f57f"><div class="sl-block-content" style="z-index: 15;"><img class="" data-natural-width="1200" data-natural-height="539" data-lazy-loaded="" data-src="pydelhi-july-2024/0b78aef519a3e481ec3e4b3966be8a91.png"></div></div>
+<div class="sl-block" data-block-type="image" style="width: 169.2px; height: 84.6px; left: 481px; top: 480.858px; min-width: 1px; min-height: 1px;" data-name="image-7d2712" data-block-id="36155474ffafd67262d193e0eacab294"><div class="sl-block-content" style="z-index: 16;"><img class="" data-natural-width="1280" data-natural-height="640" data-lazy-loaded="" data-src="pydelhi-july-2024/541a180ca675c0ba5a7fef41b538f42e.png"></div></div>
+<div class="sl-block" data-block-type="image" style="width: 97px; height: 97px; left: 325.418px; top: 585.866px; min-width: 1px; min-height: 1px;" data-name="image-bae2b6" data-block-id="126f662cb75e8d986be99cab7076b920"><div class="sl-block-content" style="z-index: 17;"><img class="" data-natural-width="400" data-natural-height="400" data-lazy-loaded="" data-src="pydelhi-july-2024/2aa5d684b1b1bf868c8519b0adaf52de.png"></div></div>
+<div class="sl-block" data-block-type="image" style="width: 108.02px; height: 110px; left: 430.918px; top: 572.866px; min-width: 1px; min-height: 1px;" data-name="image-fae7eb" data-block-id="e8cb76073b9303366cdaab26e09c1f67"><div class="sl-block-content" style="z-index: 18;"><img class="" data-natural-width="1200" data-natural-height="1222" data-lazy-loaded="" data-src="pydelhi-july-2024/263ee55fd2d00f1a361d3076424023f7.png"></div></div>
+<div class="sl-block" data-block-type="image" style="width: 172.909px; height: 61.642px; left: 565.21px; top: 603.545px; min-width: 1px; min-height: 1px;" data-name="image-23dcce" data-block-id="068a6e3219202f7db030fe4b147505e6"><div class="sl-block-content" style="z-index: 19;"><img class="" data-natural-width="2000" data-natural-height="713" data-lazy-loaded="" data-src="pydelhi-july-2024/8db498996d64a7ac1e66b9f6e31d75ee.png"></div></div>
+<div class="sl-block" data-block-type="image" style="width: 84.3591px; height: 85.842px; left: 223.881px; top: 584.945px; min-width: 1px; min-height: 1px;" data-name="image-9be8f0" data-block-id="cf748280bcab066ce7e35f78e14a5448"><div class="sl-block-content" style="z-index: 20;"><img class="" data-natural-width="1024" data-natural-height="1042" data-lazy-loaded="" data-src="pydelhi-july-2024/180a96855c1b143edf2321f729640903.png"></div></div></section><section data-id="6b74fef77a067bea003cf7344426184b"><div class="sl-block" data-block-type="text" style="width: 768px; left: 96px; top: 192.5px; height: auto;" data-block-id="9be831b84f703454d429cf9bed7f2ff6">
+							<div class="sl-block-content" style="text-align: left;line-height: 1.04;letter-spacing: -0.1em;font-size: 90%;" data-has-line-height="" data-has-letter-spacing="" data-placeholder-tag="p" data-placeholder-text="Text"><h1>Python 3.13 🪩</h1></div>
+						</div>
+<div class="sl-block" data-block-type="text" style="width: 768px; left: 96px; top: 308.5px; height: auto;" data-block-id="21cf21ebef42c0fcd0a1423e03a6d36f">
+							<div class="sl-block-content" style="text-align: left;" data-placeholder-tag="p" data-placeholder-text="Text"><ul>
+	<li>
+	<p>Will be released in October, 2024</p>
+	</li>
+	<li>
+	<p>Shining new features</p>
+
+	<ul>
+		<li>
+		<p>New, updated REPL</p>
+		</li>
+		<li>
+		<p>A new JIT compiler based on LLVM (experimental)</p>
+		</li>
+		<li>
+		<p>Free-threaded (no-GIL) builds</p>
+		</li>
+	</ul>
+	</li>
+</ul></div>
+<grammarly-extension data-grammarly-shadow-root="true" style="position: absolute; top: 0px; left: 0px; pointer-events: none; z-index: auto;" class="dnXmp"></grammarly-extension><grammarly-extension data-grammarly-shadow-root="true" style="position: absolute; top: 0px; left: 0px; pointer-events: none; z-index: auto;" class="dnXmp"></grammarly-extension><grammarly-extension data-grammarly-shadow-root="true" style="position: absolute; top: 0px; left: 0px; pointer-events: none; z-index: auto;" class="dnXmp"></grammarly-extension><grammarly-extension data-grammarly-shadow-root="true" style="position: absolute; top: 0px; left: 0px; pointer-events: none; z-index: auto;" class="dnXmp"></grammarly-extension>
+						</div></section><section data-id="600867f0509d65420d55e646338aa454"><div class="sl-block" data-block-type="text" style="width: 768px; left: 96px; top: 62.5px; height: auto;" data-block-id="cc0d4d295b880e5c24485902371ff50a">
+							<div class="sl-block-content" style="text-align: left;line-height: 1.04;letter-spacing: -0.1em;font-size: 90%;" data-has-line-height="" data-has-letter-spacing="" data-placeholder-tag="p" data-placeholder-text="Text"><h1>How does the Python release process work?</h1></div>
+						</div>
+<div class="sl-block" data-block-type="text" style="width: 768px; left: 96px; top: 261.5px; height: auto;" data-block-id="db4c13732128e65f67f29bf30aae4392">
+							<div class="sl-block-content" style="text-align: left;" data-placeholder-tag="p" data-placeholder-text="Text"><ul>
+	<li>Alphas, betas, and release candidates</li>
+	<li>Maintenance and security updates</li>
+	<li>Coordinated through Python Enhancement Proposals (PEPs) by core developers
+	<ul>
+		<li>PEP 719: Python 3.13</li>
+		<li>PEP 745: Python 3.14</li>
+	</ul>
+	</li>
+	<li>Yes, Python 3.14 is already in the feature development stage, while Python 3.13 is getting ready for releases!</li>
+</ul></div>
+						</div></section><section data-id="d63fe27dacee21e3bb7cf9afd80545b2"><div class="sl-block" data-block-type="image" style="width: 865.641px; height: 511.429px; left: 47.1795px; top: 94.2855px; min-width: 1px; min-height: 1px;" data-name="image-0f5e7e" data-block-id="1d0dc04afeb25d726e0af51f80cd56ba"><div class="sl-block-content" style="z-index: 10;"><img class="" data-natural-width="2285" data-natural-height="1350" data-lazy-loaded="" data-src="pydelhi-july-2024/e1b23f9db9741be0d44f042bc9684958.png"></div></div></section><section data-id="7a9ff3ee6ee327f3dfac6186c728a27a"><div class="sl-block" data-block-type="text" style="width: 768px; left: 96px; top: 192px; height: auto;" data-block-id="b9f75b743c26b3212290a07b2cfca8b2">
+							<div class="sl-block-content" style="text-align: left;line-height: 1.04;letter-spacing: -0.1em;font-size: 90%;" data-has-line-height="" data-has-letter-spacing="" data-placeholder-tag="p" data-placeholder-text="Text">
+								<h1>Support cycles and backports</h1>
+							</div>
+						</div>
+<div class="sl-block" data-block-type="text" style="width: 768px; left: 96px; top: 391px; height: auto;" data-block-id="7c99e9982d5cf73523e9bf0b15873865">
+							<div class="sl-block-content" style="text-align: left;" data-placeholder-tag="p" data-placeholder-text="Text"><ul>
+	<li>1.5 years of backports and 3.5 years of security updates</li>
+	<li>This will be 2 + 3 for Python 3.13 and later</li>
+	<li>End-of-life: after five years of the first release</li>
+</ul></div>
+						</div></section><section data-id="0cb54a331027dd0981c0e4e7e1ca07e0"><div class="sl-block" data-block-type="text" style="width: 768px; left: 96px; top: 207.5px; height: auto;" data-block-id="f090f025b8501ffda17a0108140dd340">
+							<div class="sl-block-content" style="text-align: left;line-height: 1.04;letter-spacing: -0.1em;font-size: 90%;" data-has-line-height="" data-has-letter-spacing="" data-placeholder-tag="p" data-placeholder-text="Text">
+								<h1>Stakeholders involved</h1>
+							</div>
+						</div>
+<div class="sl-block" data-block-type="text" style="width: 768px; left: 95px; top: 330.5px; height: auto;" data-block-id="6c432e502c76696b140433b532ee308a">
+							<div class="sl-block-content" style="text-align: left;" data-placeholder-tag="p" data-placeholder-text="Text"><ul>
+	<li>Python core developers</li>
+	<li>Release Manager</li>
+	<li>The Python Steering Council</li>
+	<li>The Python Software Foundation</li>
+	<li>Community contributors, (potentially) like you</li>
+</ul></div>
+						</div></section><section data-id="3b0e42f803796bca4dcaae4a5f9b71b9"><div class="sl-block" data-block-type="image" style="width: 662.148px; height: 700px; left: 0px; top: 0px; min-width: 1px; min-height: 1px;" data-name="image-6ee6bb" data-block-id="7725c7db2a077b07ba1930f125f1a6a2"><div class="sl-block-content" style="z-index: 10;"><img class="" data-natural-width="1277" data-natural-height="1350" data-lazy-loaded="" data-src="pydelhi-july-2024/c29aeb59f4fea48d7641620151262be2.png"></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 269px; left: 662.148px; top: 27.5px;" data-name="text-0eed20" data-block-id="35c51086a604ad1e020b8e97edbf1341"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11; line-height: 0.689;" data-has-line-height="">
+<h3 style="text-align: right;"><span style="font-size:0.7em">Visualising the CPython release process</span></h3>
+
+<h3 style="text-align: right;"> </h3>
+
+<h3 style="text-align: right;"><span style="font-size:0.5em">Seth Larson (Security Developer-in-Residence, PSF)</span></h3>
+</div></div></section><section data-id="11fc574e371001c64bae8a44205703af"><div class="sl-block" data-block-type="text" style="width: 768px; left: 96px; top: 207.5px; height: auto;" data-block-id="78b8d22ac92de6c7f7ad8498478c1f8a">
+							<div class="sl-block-content" style="text-align: left; line-height: 1.04; letter-spacing: -0.1em; font-size: 90%; z-index: 10;" data-has-line-height="" data-has-letter-spacing="" data-placeholder-tag="p" data-placeholder-text="Text"><h1>How releases are made</h1></div>
+						</div>
+<div class="sl-block" data-block-type="text" style="width: 768px; left: 95px; top: 330.5px; height: auto;" data-block-id="c9084f7fe4be72abb25bc944cd9029bf">
+							<div class="sl-block-content" style="text-align: left; z-index: 11;" data-placeholder-tag="p" data-placeholder-text="Text"><ul>
+	<li>
+<code>https://github.com/python/release-tools</code> repository</li>
+	<li>Important to note: everything runs in CI (GitHub Actions and Azure Pipelines)!</li>
+	<li>Several scripts and YAML workflows to facilitate every aspect of the release: compilation, signage, binary uploads, documentation, certificates, and more</li>
+</ul></div>
+						</div></section><section data-id="20a0dfad87ed7fea5428529720bef747"><div class="sl-block" data-block-type="text" style="width: 768px; left: 98px; top: 69px; height: auto;" data-block-id="179b607a6d82b0b86ad5ee8cbc666f98">
+							<div class="sl-block-content" style="text-align: left; line-height: 1.04; letter-spacing: -0.1em; font-size: 90%; z-index: 10;" data-has-line-height="" data-has-letter-spacing="" data-placeholder-tag="p" data-placeholder-text="Text">
+								<h1>How do you usually install Python?</h1>
+							</div>
+						</div>
+<div class="sl-block" data-block-type="text" style="width: 768px; left: 192px; top: 272px; height: auto;" data-block-id="a61255adb97d0fb3bb28f93f75bbd304">
+							<div class="sl-block-content" style="text-align: left; line-height: 1.04; letter-spacing: -0.1em; font-size: 90%; z-index: 11;" data-has-line-height="" data-has-letter-spacing="" data-placeholder-tag="p" data-placeholder-text="Text"><h2>Windows</h2></div>
+						</div>
+<div class="sl-block" data-block-type="text" style="width: 768px; left: 96px; top: 350px; height: auto;" data-block-id="087b914eb26e9d89842d0983c79f2525">
+							<div class="sl-block-content" style="text-align: left; z-index: 12;" data-placeholder-tag="p" data-placeholder-text="Text"><ul>
+	<li>Package managers (Chocolatey, NuGet, Scoop)</li>
+	<li>Microsoft Store</li>
+	<li>Official <a href="https://python.org/download/" target="_blank">https://python.org/download/</a> installation wizards offered in <code>.msi</code> or <code>.exe format</code>
+</li>
+</ul></div>
+						</div>
+
+
+
+<div class="sl-block" data-block-type="image" style="width: 69px; height: 69px; left: 96px; top: 262px; min-width: 1px; min-height: 1px;" data-name="image-759d01" data-block-id="9f6772fb1c85087f0c92da24ea73f74e"><div class="sl-block-content" style="z-index: 13;"><img class="" data-natural-width="1024" data-natural-height="1024" data-lazy-loaded="" data-src="pydelhi-july-2024/590d833b62e141d04f41475abb32a436.png"></div></div></section><section data-id="625e5c74820470c4804a8aa136e8ecb4">
+
+
+<div class="sl-block" data-block-type="text" style="width: 676px; left: 171px; top: 272px; height: auto;" data-block-id="28d1cbd6e28a77a88c676ad849518b5e">
+							<div class="sl-block-content" style="text-align: left; line-height: 1.04; letter-spacing: -0.1em; font-size: 90%; z-index: 11;" data-has-line-height="" data-has-letter-spacing="" data-placeholder-tag="p" data-placeholder-text="Text"><h2>macOS</h2></div>
+						</div>
+<div class="sl-block" data-block-type="text" style="width: 768px; left: 115px; top: 350px; height: auto;" data-block-id="e5973abb80020f9a8aeca2576ab37889">
+							<div class="sl-block-content" style="text-align: left; z-index: 12;" data-placeholder-tag="p" data-placeholder-text="Text">
+								<ul>
+<li>Package managers (Homebrew, MacPorts, Fink)</li>
+<li>Official <code>.pkg</code> or <code>.dmg</code> installers</li>
+</ul>
+							</div>
+						</div>
+
+<div class="sl-block" data-block-type="image" style="width: 58.5929px; height: 71.999px; left: 96px; top: 262.5px; min-width: 1px; min-height: 1px;" data-name="image-e1c90b" data-block-id="ddbc1172a438fbb77ba8f6b74fb14a90"><div class="sl-block-content" style="z-index: 13;"><img class="" data-natural-width="625" data-natural-height="768" data-lazy-loaded="" data-src="pydelhi-july-2024/904fd44e3635a3bf7f732f535d8e12e3.png"></div></div>
+<div class="sl-block" data-block-type="text" style="width: 768px; left: 97px; top: 69px; height: auto;" data-block-id="32a5c740ed6cbaaca55b3f496e6776f7" data-name="text-175f7d">
+							<div class="sl-block-content" style="text-align: left; line-height: 1.04; letter-spacing: -0.1em; font-size: 90%; z-index: 14;" data-has-line-height="" data-has-letter-spacing="" data-placeholder-tag="p" data-placeholder-text="Text">
+								<h1>How do you usually install Python?</h1>
+							</div>
+						</div></section><section data-id="30796e1f5a3b7f70ecf2e76bc5810b74">
+
+
+
+
+<div class="sl-block" data-block-type="text" style="width: 680px; left: 169px; top: 272px; height: auto;" data-block-id="3b47d87834412c925e1e737de3c0f3c8">
+							<div class="sl-block-content" style="text-align: left; line-height: 1.04; letter-spacing: -0.1em; font-size: 90%; z-index: 11;" data-has-line-height="" data-has-letter-spacing="" data-placeholder-tag="p" data-placeholder-text="Text"><h2>GNU/Linux</h2></div>
+						</div>
+<div class="sl-block" data-block-type="text" style="width: 768px; left: 96px; top: 361px; height: auto;" data-block-id="2a4dbebf12077d45c817acf8009b5838">
+							<div class="sl-block-content" style="text-align: left; z-index: 12;" data-placeholder-tag="p" data-placeholder-text="Text"><ul>
+	<li>Package managers (<code>apt</code>, <code>yum</code>, <code>dpkg</code>, <code>dnf</code>, Linuxbrew, Spack)</li>
+	<li>Official source tarballs</li>
+</ul></div>
+						</div>
+<div class="sl-block" data-block-type="image" style="width: 63.2411px; height: 75px; left: 96px; top: 261px; min-width: 1px; min-height: 1px;" data-name="image-ff7a04" data-block-id="8be07add5399439fb7459a40c3518d26"><div class="sl-block-content" style="z-index: 13;"><img class="" data-natural-width="640" data-natural-height="759" data-lazy-loaded="" data-src="pydelhi-july-2024/e57d05f44c4f51f12c462cf1a5dccb0e.png"></div></div>
+<div class="sl-block" data-block-type="text" style="width: 768px; left: 96px; top: 69px; height: auto;" data-name="text-175f7d" data-block-id="81aaf1da1f3f10c9f9989ae2cbf8dd1b">
+							<div class="sl-block-content" style="text-align: left; line-height: 1.04; letter-spacing: -0.1em; font-size: 90%; z-index: 14;" data-has-line-height="" data-has-letter-spacing="" data-placeholder-tag="p" data-placeholder-text="Text">
+								<h1>How do you usually install Python?</h1>
+							</div>
+						</div></section><section data-id="e825db060e95c6f1ad046281b6a86939"><div class="sl-block" data-block-type="text" style="width: 768px; left: 96px; top: 192px; height: auto;" data-block-id="7f73d11a8209b00e1f7a84aa9d8f9895">
+							<div class="sl-block-content" style="text-align: left;line-height: 1.04;letter-spacing: -0.1em;font-size: 90%;" data-has-line-height="" data-has-letter-spacing="" data-placeholder-tag="p" data-placeholder-text="Text"><h1>Downstream packaging and distribution</h1></div>
+						</div>
+<div class="sl-block" data-block-type="text" style="width: 768px; left: 96px; top: 386px; height: auto;" data-block-id="82dbf258f3ba7aa7172c145b93a17c23">
+							<div class="sl-block-content" style="text-align: left;" data-placeholder-tag="p" data-placeholder-text="Text"><ul>
+	<li>OS-specific package maintainers (Red Hat, Gentoo, etc.)</li>
+	<li>Maintainers of Docker images</li>
+	<li>Cloud provider distributions (AWS, Azure, GCP)</li>
+	<li>Embedded systems and IoT devices</li>
+</ul></div>
+						</div></section><section data-id="418a0ef15344572d9beca40944814e9f"><div class="sl-block" data-block-type="text" style="width: 768px; left: 96px; top: 310px; height: auto;" data-block-id="3f4239eec4aff8ade9b7ddedbdeef903">
+							<div class="sl-block-content" style="text-align: left;line-height: 1.04;letter-spacing: -0.1em;font-size: 90%;" data-has-line-height="" data-has-letter-spacing="" data-placeholder-tag="p" data-placeholder-text="Text">
+								<h1>Build provenance</h1>
+							</div>
+						</div></section><section data-id="f88a6564d4525df2bf1bc4e94f713ba5"><div class="sl-block" data-block-type="text" style="width: 768px; left: 96px; top: 61.5px; height: auto;" data-block-id="9ed0c3d1c8a6b7a7faeb02142fd21499">
+							<div class="sl-block-content" style="text-align: center; line-height: 1.04; letter-spacing: -0.1em; font-size: 90%; z-index: 10;" data-has-line-height="" data-has-letter-spacing="" data-placeholder-tag="p" data-placeholder-text="Text"><h1>Provenance</h1></div>
+						</div>
+<div class="sl-block" data-block-type="text" style="width: 768px; left: 96px; top: 144.5px; height: auto;" data-block-id="bb37a78e935820fcc89a7fd3a5d01b34">
+							<div class="sl-block-content" style="text-align: left; z-index: 11;" data-placeholder-tag="p" data-placeholder-text="Text"><p>Let's compare two photos. Are they the same photo?</p></div>
+						</div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: 10px; top: 661px;" data-name="text-45702b" data-block-id="896f6ef943b7e4de122bddecd08e8e84"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12; text-align: left;"><p><span style="font-size:0.5em"><a href="https://unsplash.com/@chriscurry92?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash" target="_blank">Chris Curry</a> on <a href="https://unsplash.com/photos/a-green-snake-on-a-branch-of-a-tree-KsSxzBnozMY?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash" target="_blank">Unsplash</a></span></p></div></div>
+<div class="sl-block" data-block-type="image" style="width: 329.413px; height: 439px; left: 96px; top: 202.5px; min-width: 1px; min-height: 1px;" data-name="image-7a6bb4" data-block-id="95e554185752d780a2ebd5b8e308c49a"><div class="sl-block-content" style="z-index: 13; border-style: solid; border-width: 1px;"><img class="" data-natural-width="1013" data-natural-height="1350" data-lazy-loaded="" data-src="pydelhi-july-2024/52924a257df8d82603cb7f84380b6214.png"></div></div>
+<div class="sl-block" data-block-type="image" style="width: 329px; height: 438.45px; left: 535px; top: 202.5px; min-width: 1px; min-height: 1px;" data-name="image-e1ea52" data-block-id="a3ba342ffb99b5fd03286045a42e85a7"><div class="sl-block-content" style="z-index: 14; border-style: solid; border-width: 1px;"><img class="" data-natural-width="1013" data-natural-height="1350" data-lazy-loaded="" data-src="pydelhi-july-2024/5f6f1f395a25f81b9cef3b50637f5216.png"></div></div></section><section data-id="af16e45496590a95bace0857d3d96608"><div class="sl-block" data-block-type="text" style="width: 768px; left: 58px; top: 37px; height: auto;" data-block-id="92c00a8eacb4243a7aacd79d3385a88a">
+							<div class="sl-block-content" style="text-align: left; line-height: 1.04; letter-spacing: -0.1em; font-size: 90%; z-index: 10;" data-has-line-height="" data-has-letter-spacing="" data-placeholder-tag="p" data-placeholder-text="Text"><h1>They are not :P</h1></div>
+						</div>
+<div class="sl-block" data-block-type="image" style="width: 374px; height: 366.808px; left: 500px; top: 166.5px; min-width: 1px; min-height: 1px;" data-name="image-4e9b1f" data-block-id="bc2141be9c0faad93b460fbd27183889"><div class="sl-block-content" style="z-index: 11;"><img class="" data-natural-width="104" data-natural-height="102" data-lazy-loaded="" data-src="pydelhi-july-2024/445398cbcff373c958b03fdf207231d8.png"></div></div>
+<div class="sl-block" data-block-type="image" style="width: 374.196px; height: 367px; left: 86px; top: 166.5px; min-width: 1px; min-height: 1px;" data-name="image-12e851" data-block-id="0830cfa05a3113fe7514903b7b63e05d"><div class="sl-block-content" style="z-index: 12;"><img class="" data-natural-width="104" data-natural-height="102" data-lazy-loaded="" data-src="pydelhi-july-2024/702c3f0ae41f0689fefbaf0b5bcd770f.png"></div></div></section><section data-id="9ac835991cb4fb8b4b2fb7ae8555269c"><div class="sl-block" data-block-type="text" style="width: 768px; left: 96px; top: 29px; height: auto;" data-block-id="482bebdae50272e938f19abe30d3d1a7">
+							<div class="sl-block-content" style="text-align: left; line-height: 1.04; letter-spacing: -0.1em; font-size: 90%; z-index: 10;" data-has-line-height="" data-has-letter-spacing="" data-placeholder-tag="p" data-placeholder-text="Text"><h1 style="text-align: center;">How about these two?</h1></div>
+						</div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: 0px; top: 661px;" data-name="text-c80afc" data-block-id="f28fafef0637acf4d1a2dd3bc06011df"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11;"><p style="text-align: left;"><span style="font-size:0.5em"><a href="https://unsplash.com/@francesco_ungaro?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash" target="_blank">Francesco Ungaro</a> on <a href="https://unsplash.com/photos/a-body-of-water-surrounded-by-mountains-under-a-cloudy-sky-T-Z_YB4jTA4?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash" target="_blank">Unsplash</a></span></p></div></div>
+<div class="sl-block" data-block-type="image" style="width: 345.333px; height: 518px; left: 96px; top: 121px; min-width: 1px; min-height: 1px;" data-name="image-08a664" data-block-id="dba2a27bcd2f0f85057b455f9cfea777"><div class="sl-block-content" style="z-index: 12;"><img class="" data-natural-width="900" data-natural-height="1350" data-lazy-loaded="" data-src="pydelhi-july-2024/2ee9b11b2b9995a2a730880ed7a887e3.png"></div></div>
+<div class="sl-block" data-block-type="image" style="width: 345.333px; height: 518px; left: 518.667px; top: 121px; min-width: 1px; min-height: 1px;" data-block-id="5fc8063f23b68058c2c69a8738986b8f" data-name="image-c6113a"><div class="sl-block-content" style="z-index: 14;"><img class="" data-natural-width="900" data-natural-height="1350" data-lazy-loaded="" data-src="pydelhi-july-2024/2ee9b11b2b9995a2a730880ed7a887e3.png"></div></div></section><section data-id="f13377be172b83bc3075d36b4f6e4f6e"><div class="sl-block" data-block-type="text" style="width: 768px; left: 96px; top: 275px; height: auto;" data-block-id="391f4b6a8c75bddb6fc241b4f4ccfe5a">
+							<div class="sl-block-content" style="text-align: left; line-height: 1.04; letter-spacing: -0.1em; font-size: 80%;" data-has-line-height="" data-has-letter-spacing="" data-placeholder-tag="p" data-placeholder-text="Text"><h1>They are the same, but don't be too quick to judge!</h1></div>
+						</div></section><section data-id="501e5bcb10bca69c73ae9f5cd3e8d2d9"><div class="sl-block" data-block-type="text" style="width: 507px; left: 36px; top: 62px; height: auto;" data-block-id="ddc5e6ad9c074e4ffc659420db5e566d">
+							<div class="sl-block-content" style="text-align: left; line-height: 1.04; letter-spacing: -0.1em; font-size: 90%; z-index: 10;" data-has-line-height="" data-has-letter-spacing="" data-placeholder-tag="p" data-placeholder-text="Text"><h1>Images contain metadata</h1></div>
+						</div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 465px; left: 495px; top: 0px;" data-name="text-c77728" data-block-id="ed6f3c487250a852ef2996ad4d01f7af"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11; line-height: 0.507;" data-has-line-height=""><p><span style="font-size:0.5em">FileSize: 3.5 MiB<br>
+FileModifyDate: 2024-07-19T18:50:31.000+00:00<br>
+FileAccessDate: 2024-07-19T18:50:31.000+00:00<br>
+FileInodeChangeDate: 2024-07-19T18:50:31.000+00:00<br>
+FileType: JPEG<br>
+FileTypeExtension: jpg<br>
+MIMEType: image/jpeg<br>
+JFIFVersion: 1.02<br>
+ResolutionUnit: inches<br>
+XResolution: 72<br>
+YResolution: 72<br>
+ProfileCMMType: Linotronic<br>
+ProfileVersion: 2.1.0<br>
+ProfileClass: Display Device Profile<br>
+ColorSpaceData: RGB<br>
+ProfileConnectionSpace: XYZ<br>
+ProfileDateTime: 1998-02-09T06:49:00.000+00:00<br>
+ProfileFileSignature: acsp<br>
+PrimaryPlatform: Microsoft Corporation<br>
+CMMFlags: Not Embedded, Independent<br>
+DeviceManufacturer: Hewlett-Packard<br>
+DeviceModel: sRGB<br>
+DeviceAttributes: Reflective, Glossy, Positive, Color<br>
+RenderingIntent: Perceptual<br>
+ConnectionSpaceIlluminant: 0.9642 1 0.82491<br>
+ProfileCreator: Hewlett-Packard<br>
+ProfileID: 0<br>
+ProfileCopyright: Copyright (c) 1998 Hewlett-Packard Company<br>
+ProfileDescription: sRGB IEC61966-2.1<br>
+MediaWhitePoint: 0.95045 1 1.08905<br>
+MediaBlackPoint: 0 0 0</span><br>
+ </p></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: 15px; top: 219.5px;" data-name="text-2f9ead" data-block-id="3be4aa8e2a79a9886a5ee7a694883461"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12; line-height: 0.507;" data-has-line-height=""><p><span style="font-size:0.5em"><span style="color:rgb(0, 0, 0)">RedMatrixColumn: 0.43607 0.22249 0.01392</span><br>
+<span style="color:rgb(0, 0, 0)">GreenMatrixColumn: 0.38515 0.71687 0.09708</span><br>
+<span style="color:rgb(0, 0, 0)">BlueMatrixColumn: 0.14307 0.06061 0.7141</span><br>
+<span style="color:rgb(0, 0, 0)">DeviceMfgDesc: IEC http://www.iec.ch</span><br>
+<span style="color:rgb(0, 0, 0)">DeviceModelDesc: IEC 61966-2.1 Default RGB colour space - sRGB</span><br>
+<span style="color:rgb(0, 0, 0)">ViewingCondDesc: Reference Viewing Condition in IEC61966-2.1</span><br>
+<span style="color:rgb(0, 0, 0)">ViewingCondIlluminant: 19.6445 20.3718 16.8089</span><br>
+<span style="color:rgb(0, 0, 0)">ViewingCondSurround: 3.92889 4.07439 3.36179</span><br>
+<span style="color:rgb(0, 0, 0)">ViewingCondIlluminantType: D50</span><br>
+<span style="color:rgb(0, 0, 0)">Luminance: 76.03647 80 87.12462</span><br>
+<span style="color:rgb(0, 0, 0)">MeasurementObserver: CIE 1931</span><br>
+<span style="color:rgb(0, 0, 0)">MeasurementBacking: 0 0 0</span><br>
+<span style="color:rgb(0, 0, 0)">MeasurementGeometry: Unknown</span><br>
+<span style="color:rgb(0, 0, 0)">MeasurementFlare: 0.999%</span><br>
+<span style="color:rgb(0, 0, 0)">MeasurementIlluminant: D65</span><br>
+<span style="color:rgb(0, 0, 0)">Technology: Cathode Ray Tube Display</span><br>
+<span style="color:rgb(0, 0, 0)">RedTRC: (Binary data 2060 bytes, use -b option to extract)</span><br>
+<span style="color:rgb(0, 0, 0)">GreenTRC: (Binary data 2060 bytes, use -b option to extract)</span><br>
+<span style="color:rgb(0, 0, 0)">BlueTRC: (Binary data 2060 bytes, use -b option to extract)</span><br>
+<span style="color:rgb(0, 0, 0)">ImageWidth: 4160</span><br>
+<span style="color:rgb(0, 0, 0)">ImageHeight: 6240</span><br>
+<span style="color:rgb(0, 0, 0)">EncodingProcess: Progressive DCT, Huffman coding</span><br>
+<span style="color:rgb(0, 0, 0)">BitsPerSample: 8</span><br>
+<span style="color:rgb(0, 0, 0)">ColorComponents: 3</span><br>
+<span style="color:rgb(0, 0, 0)">YCbCrSubSampling: YCbCr4:2:0 (2 2)</span><br>
+<span style="color:rgb(0, 0, 0)">ImageSize: 4160x6240</span><br>
+<span style="color:rgb(0, 0, 0)">Megapixels: 26</span></span></p></div></div></section><section data-id="b70eeebbb5dacc0eb599df2ff7a73062"><div class="sl-block" data-block-type="image" style="width: 617.146px; height: 518px; left: 171.427px; top: 91px; min-width: 1px; min-height: 1px;" data-name="image-028769" data-block-id="f3dce1c5c409018282f51f5557753520"><div class="sl-block-content" style="z-index: 10;"><img class="" data-natural-width="1164" data-natural-height="977" data-lazy-loaded="" data-src="pydelhi-july-2024/bcedc6b73a0159397476af5997e60605.png"></div></div></section><section data-id="d435da73635d32cf4228abd360012a25"><div class="sl-block" data-block-type="text" style="width: 768px; left: 33px; top: 316px; height: auto;" data-block-id="d76857913d7448674687b46dbd27f7ff">
+							<div class="sl-block-content" style="text-align: left; line-height: 1.04; letter-spacing: -0.1em; font-size: 90%; z-index: 10;" data-has-line-height="" data-has-letter-spacing="" data-placeholder-tag="p" data-placeholder-text="Text"><h1>Provenance is</h1></div>
+						</div>
+<div class="sl-block" data-block-type="text" style="width: 768px; left: 480px; top: 153.5px; height: auto;" data-block-id="eba53df07309ac29fd0e6164b4795b46">
+							<div class="sl-block-content" style="text-align: left; line-height: 1.04; letter-spacing: -0.1em; font-size: 120%; z-index: 11; color: rgb(136, 136, 136);" data-has-line-height="" data-has-letter-spacing="" data-placeholder-tag="p" data-placeholder-text="Text"><h2>security</h2></div>
+						</div>
+<div class="sl-block" data-block-type="text" style="width: 768px; left: 480px; top: 315.5px; height: auto;" data-block-id="73104ed9c7e3bb52fe47f6af79c7c05d">
+							<div class="sl-block-content" style="text-align: left; line-height: 1.04; letter-spacing: -0.1em; font-size: 120%; z-index: 12; color: rgb(28, 69, 135);" data-has-line-height="" data-has-letter-spacing="" data-placeholder-tag="p" data-placeholder-text="Text"><h2><strong>metadata</strong></h2></div>
+						</div>
+<div class="sl-block" data-block-type="text" style="width: 768px; left: 480px; top: 396px; height: auto;" data-block-id="6fcc43ecaf90c85b54c8d5fa729e6843">
+							<div class="sl-block-content" style="text-align: left; line-height: 1.04; letter-spacing: -0.1em; font-size: 120%; z-index: 13; color: rgb(68, 68, 68);" data-has-line-height="" data-has-letter-spacing="" data-placeholder-tag="p" data-placeholder-text="Text"><h2>reproducibility</h2></div>
+						</div>
+<div class="sl-block" data-block-type="text" style="width: 768px; left: 480px; top: 477px; height: auto;" data-block-id="86ff3f0b6c217eee74c73d33bd9419cf" data-name="text-e88724">
+							<div class="sl-block-content" style="text-align: left; line-height: 1.04; letter-spacing: -0.1em; font-size: 120%; z-index: 14; color: rgb(136, 136, 136);" data-has-line-height="" data-has-letter-spacing="" data-placeholder-tag="p" data-placeholder-text="Text"><h2>verifiability</h2></div>
+						</div>
+<div class="sl-block" data-block-type="text" style="width: 768px; left: 480px; top: 76.5px; height: auto;" data-block-id="bf07bb9bf7b056ea28289b628f0eeac4" data-name="text-aef98f">
+							<div class="sl-block-content" style="text-align: left; line-height: 1.04; letter-spacing: -0.1em; font-size: 120%; z-index: 15; color: rgb(170, 170, 170);" data-has-line-height="" data-has-letter-spacing="" data-placeholder-tag="p" data-placeholder-text="Text"><h2>evidence</h2></div>
+						</div>
+<div class="sl-block" data-block-type="text" style="width: 768px; left: 480px; top: 234.5px; height: auto;" data-block-id="305d52126307c245a36b19bfad72dbde" data-name="text-eae441">
+							<div class="sl-block-content" style="text-align: left; line-height: 1.04; letter-spacing: -0.1em; font-size: 120%; z-index: 16; color: rgb(68, 68, 68);" data-has-line-height="" data-has-letter-spacing="" data-placeholder-tag="p" data-placeholder-text="Text"><h2>identifiability</h2></div>
+						</div>
+<div class="sl-block" data-block-type="text" style="width: 768px; left: 480px; top: 553.5px; height: auto;" data-block-id="29302c6f2d611740bd1ef4f739f34806" data-name="text-3b32b9">
+							<div class="sl-block-content" style="text-align: left; line-height: 1.04; letter-spacing: -0.1em; font-size: 120%; z-index: 17; color: rgb(170, 170, 170);" data-has-line-height="" data-has-letter-spacing="" data-placeholder-tag="p" data-placeholder-text="Text"><h2>confidence</h2></div>
+						</div>
+<div class="sl-block" data-block-type="text" style="width: 768px; left: 480px; top: 0px; height: auto;" data-block-id="26c5100368a14c5c92d941748184e6cd" data-name="text-29b202">
+							<div class="sl-block-content" style="text-align: left; line-height: 1.04; letter-spacing: -0.1em; font-size: 120%; z-index: 18; color: rgb(170, 170, 170);" data-has-line-height="" data-has-letter-spacing="" data-placeholder-tag="p" data-placeholder-text="Text"><h2>origin</h2></div>
+						</div>
+<div class="sl-block" data-block-type="text" style="width: 768px; left: 480px; top: 624.5px; height: auto;" data-block-id="e3855ec9cd8d9d092c8da5574baa0db8" data-name="text-e49c79">
+							<div class="sl-block-content" style="text-align: left; line-height: 1.04; letter-spacing: -0.1em; font-size: 120%; z-index: 19; color: rgb(170, 170, 170);" data-has-line-height="" data-has-letter-spacing="" data-placeholder-tag="p" data-placeholder-text="Text"><h2>trust</h2></div>
+						</div></section><section data-id="9c74652f3d37f1653cc2f08807a19402"><div class="sl-block" data-block-type="text" style="width: 768px; left: 96px; top: 239.5px; height: auto;" data-block-id="8017434735ac68b600e4b645f2628b3a">
+							<div class="sl-block-content" style="text-align: left; line-height: 1.04; letter-spacing: -0.1em; font-size: 87%;" data-has-line-height="" data-has-letter-spacing="" data-placeholder-tag="p" data-placeholder-text="Text"><h1>SLSA: Supply-chain Levels for Software Artifacts</h1></div>
+						</div></section><section data-id="7f07297b6443423ee913c0e14323f397"><div class="sl-block" data-block-type="text" style="width: 768px; left: 96px; top: 148px; height: auto;" data-block-id="e82f329fe3f8e1829af401992f775e1a">
+							<div class="sl-block-content" style="text-align: left;line-height: 1.04;letter-spacing: -0.1em;font-size: 90%;" data-has-line-height="" data-has-letter-spacing="" data-placeholder-tag="p" data-placeholder-text="Text">
+								<h1>The software supply chain</h1>
+							</div>
+						</div>
+
+<div class="sl-block" data-block-type="text" style="width: 768px; left: 96px; top: 347px; height: auto;" data-block-id="0f0b3e2fa95567aa41c077478612ef38">
+							<div class="sl-block-content" style="text-align: left;" data-placeholder-tag="p" data-placeholder-text="Text">
+								<ul>
+<li>Source code</li>
+<li>Build systems</li>
+<li>Package registries</li>
+<li>Distribution channels</li>
+<li>End users</li>
+</ul>
+							</div>
+						</div></section><section data-id="636876aa96a02d107fab6c9b859124e8"><div class="sl-block" data-block-type="image" style="width: 806.4px; height: 312.551px; left: 76.8px; top: 193.725px; min-width: 1px; min-height: 1px;" data-name="image-95fb69" data-block-id="afb3b8f99c517acece76b24494390945"><div class="sl-block-content" style="z-index: 10;"><img class="" data-natural-width="1708" data-natural-height="662" data-lazy-loaded="" data-src="pydelhi-july-2024/8d182297c2c9699e57af74d9adee4e51.png"></div></div></section><section data-id="c2f532d4445f2bf2af850ecb65178548"><div class="sl-block" data-block-type="image" style="width: 509.835px; height: 518px; left: 225.082px; top: 91px; min-width: 1px; min-height: 1px;" data-name="image-2371ba" data-block-id="244f37e92c68ae0288fe8f1181189f8d"><div class="sl-block-content" style="z-index: 10;"><img class="" data-natural-width="1124" data-natural-height="1142" data-lazy-loaded="" data-src="pydelhi-july-2024/2ad58196f79a82281c34192aea7c83d4.png"></div></div></section><section data-id="66bfc2775800c711113ac4839968a8ce"><div class="sl-block" data-block-type="text" style="width: 768px; left: 96px; top: 119px; height: auto;" data-block-id="01e324ab8e8cb740cf4e793aa5431a1c">
+							<div class="sl-block-content" style="text-align: left;line-height: 1.04;letter-spacing: -0.1em;font-size: 90%;" data-has-line-height="" data-has-letter-spacing="" data-placeholder-tag="p" data-placeholder-text="Text"><h1>Exhibit: dependency confusion</h1></div>
+						</div>
+<div class="sl-block" data-block-type="text" style="width: 768px; left: 96px; top: 325px; height: auto;" data-block-id="2992b78371ecdc1284280dfbafb8f93e">
+							<div class="sl-block-content" style="text-align: left;" data-placeholder-tag="p" data-placeholder-text="Text"><ul>
+	<li>
+	<p>PyTorch (nightly release) was compromised between December 26–31, 2022</p>
+	</li>
+	<li>
+	<p>Malicious miscreants added <code>torchtriton </code><span style="color:rgb(0, 0, 0)">as a dependency to PyPI, from where</span><code> pip</code> downloads packages at a priority in comparison to other indices</p>
+	</li>
+	<li>
+	<p>Downloaded ~2717 times in total, with 2500 on 26 December 2022 alone</p>
+	</li>
+</ul></div>
+						</div></section><section data-id="05c74adb58c6ae193b8286d7fe07d15d"><div class="sl-block" data-block-type="image" style="width: 767.703px; height: 518px; left: 96.1485px; top: 91px; min-width: 1px; min-height: 1px;" data-name="image-ece205" data-block-id="d87040a5872c04bb534a2f8a7670ce05"><div class="sl-block-content" style="z-index: 10;"><img class="" data-natural-width="1156" data-natural-height="780" data-lazy-loaded="" data-src="pydelhi-july-2024/1413ae61970c28fc271ad8d2ef19f2d0.png"></div></div></section><section data-id="d5d6e194a97a3b899f8fd6149d38b5bf"><div class="sl-block" data-block-type="text" style="width: 768px; left: 96px; top: 72px; height: auto;" data-block-id="bcbdde50427e1a279c3dbef2cd4cf8da">
+							<div class="sl-block-content" style="text-align: left;line-height: 1.04;letter-spacing: -0.1em;font-size: 90%;" data-has-line-height="" data-has-letter-spacing="" data-placeholder-tag="p" data-placeholder-text="Text">
+								<h1>Similar attacks in the wild</h1>
+							</div>
+						</div>
+<div class="sl-block" data-block-type="text" style="width: 768px; left: 96px; top: 232.106px; height: auto;" data-block-id="a081908cc5467f490859ca2c76590b1b">
+							<div class="sl-block-content" style="text-align: left;line-height: 1.04;letter-spacing: -0.1em;font-size: 90%;" data-has-line-height="" data-has-letter-spacing="" data-placeholder-tag="p" data-placeholder-text="Text">
+								<h2>Typosquatting</h2>
+							</div>
+						</div>
+<div class="sl-block" data-block-type="text" style="width: 768px; left: 96px; top: 317.106px; height: auto;" data-block-id="20d2b1a2640e58dd7cc29bf7c2739591">
+							<div class="sl-block-style" style="z-index: 0; transform: rotate(0deg);"><div class="sl-block-content" style="text-align: left;" data-placeholder-tag="p" data-placeholder-text="Text"><p><span style="font-size:1.2em">pip install requetss?</span></p></div></div>
+						</div>
+<div class="sl-block" data-block-type="text" style="width: 768px; left: 494px; top: 580.385px; height: auto;" data-block-id="fb3553db3e29461b34fa7b4f2f8694c1">
+							<div class="sl-block-style" style="z-index: 0; transform: rotate(10deg);"><div class="sl-block-content" style="text-align: left;" data-placeholder-tag="p" data-placeholder-text="Text">
+								<p>pip install beautifilsoup4</p>
+							</div></div>
+						</div>
+<div class="sl-block" data-block-type="text" style="width: 768px; left: 480px; top: 390.845px; height: auto;" data-block-id="113a72012e36018dcb7bff1c97d27e39">
+							<div class="sl-block-style" style="z-index: 0; transform: rotate(4deg);"><div class="sl-block-content" style="text-align: left;" data-placeholder-tag="p" data-placeholder-text="Text">
+								<p>tensotflow</p>
+							</div></div>
+						</div>
+<div class="sl-block" data-block-type="text" style="width: 768px; left: 297px; top: 389.759px; height: auto;" data-block-id="7f8c9936325c4b3787b8342ef19b9f54">
+							<div class="sl-block-style" style="z-index: 0; transform: rotate(-7deg);"><div class="sl-block-content" style="text-align: left;" data-placeholder-tag="p" data-placeholder-text="Text">
+								<p>playwrgiht</p>
+							</div></div>
+						</div>
+<div class="sl-block" data-block-type="text" style="width: 768px; left: 659px; top: 376.5px; height: auto;" data-block-id="3c39f8ec1d59c761068c6d6b1da098d9">
+							<div class="sl-block-style" style="z-index: 0; transform: rotate(-5deg);"><div class="sl-block-content" style="text-align: left;" data-placeholder-tag="p" data-placeholder-text="Text">
+								<p>matplptlib</p>
+							</div></div>
+						</div>
+<div class="sl-block" data-block-type="text" style="width: 768px; left: 51px; top: 534.084px; height: auto;" data-block-id="f9007fbcec74cf85386af05fc73e3d77">
+							<div class="sl-block-style" style="z-index: 0; transform: rotate(4deg);"><div class="sl-block-content" style="text-align: left;" data-placeholder-tag="p" data-placeholder-text="Text">
+								<p>requirementstxt</p>
+							</div></div>
+						</div>
+<div class="sl-block" data-block-type="text" style="width: 768px; left: 322px; top: 540.739px; height: auto;" data-block-id="078dbe3653c2bd1be874c3c5ec617c50">
+							<div class="sl-block-style" style="z-index: 0; transform: rotate(-4deg);"><div class="sl-block-content" style="text-align: left;" data-placeholder-tag="p" data-placeholder-text="Text">
+								<p>asynciio</p>
+							</div></div>
+						</div></section><section data-id="2fb9da6fceb7533da82d9aee83216b74"><div class="sl-block" data-block-type="image" style="width: 806.4px; height: 326.965px; left: 76.8px; top: 186.518px; min-width: 1px; min-height: 1px;" data-name="image-c97259" data-block-id="bba2b7c3b9d072279fb1bff15c0aeef2"><div class="sl-block-content" style="z-index: 10;"><img class="" data-natural-width="1904" data-natural-height="772" data-lazy-loaded="" data-src="pydelhi-july-2024/85a63bab95f1eb45b5dd854294d009d3.png"></div></div></section><section data-id="ff6ec3613f717a2b3543f48ba260328c"><div class="sl-block" data-block-type="image" style="width: 806.4px; height: 305.968px; left: 76.8px; top: 197.016px; min-width: 1px; min-height: 1px;" data-name="image-212328" data-block-id="3ee0c02a02553a79456774ee2bf12325"><div class="sl-block-content" style="z-index: 10;"><img class="" data-natural-width="1808" data-natural-height="686" data-lazy-loaded="" data-src="pydelhi-july-2024/b9171a1324fa9eb64f2607520034f04e.png"></div></div></section><section data-id="8f9e90cc7893cf391481a7b1d08c80b3"><div class="sl-block" data-block-type="image" style="width: 666.307px; height: 693px; left: 146.846px; top: 3.5px; min-width: 1px; min-height: 1px;" data-name="image-567716" data-block-id="240f4f8465853dbeff1a63af620b08e4"><div class="sl-block-content" style="z-index: 10;"><img class="" data-natural-width="1298" data-natural-height="1350" data-lazy-loaded="" data-src="pydelhi-july-2024/fb0266739eef951adddd081c8a7206e3.png"></div></div></section><section data-id="d23fca95a4c741f2edcbb24411417064"><div class="sl-block" data-block-type="text" style="width: 768px; left: 96px; top: 72px; height: auto;" data-block-id="b3af575c4b6bd82a8565e673aef76663">
+							<div class="sl-block-content" style="text-align: left; line-height: 1.04; letter-spacing: -0.1em; font-size: 90%; z-index: 10;" data-has-line-height="" data-has-letter-spacing="" data-placeholder-tag="p" data-placeholder-text="Text"><h1>This isn't endemic to the Python ecosystem alone</h1></div>
+						</div>
+
+
+
+
+
+
+
+<div class="sl-block" data-block-type="image" style="width: 806.4px; height: 197.14px; left: 32.8px; top: 251.43px; min-width: 1px; min-height: 1px;" data-name="image-a8e2f7" data-block-id="77cecb9163f36e20805733a303679700"><div class="sl-block-content" style="z-index: 11;"><img class="" data-natural-width="1808" data-natural-height="442" data-lazy-loaded="" data-src="pydelhi-july-2024/c3de71db7456a739736fc0fc28280382.png"></div></div>
+<div class="sl-block" data-block-type="image" style="width: 806.4px; height: 197.14px; left: 118.8px; top: 467.43px; min-width: 1px; min-height: 1px;" data-name="image-d60a58" data-block-id="179d2767f9f7b64af5d75007d7b01041"><div class="sl-block-content" style="z-index: 12;"><img class="" data-natural-width="1808" data-natural-height="442" data-lazy-loaded="" data-src="pydelhi-july-2024/659ca54a2048238045ccf182e2b27fd1.png"></div></div></section><section data-id="94fb545c5ad4774592b576943e3eef6c"><div class="sl-block" data-block-type="text" style="width: 768px; left: 96px; top: 60px; height: auto;" data-block-id="a4a5c24a7ac2e5545d846618113d279c">
+							<div class="sl-block-content" style="text-align: left; line-height: 1.04; letter-spacing: -0.1em; font-size: 90%; z-index: 10;" data-has-line-height="" data-has-letter-spacing="" data-placeholder-tag="p" data-placeholder-text="Text"><h1>SLSA provenance</h1></div>
+						</div>
+
+<div class="sl-block" data-block-type="text" style="height: auto; width: 421px; left: 25px; top: 171.5px;" data-name="text-08f323" data-block-id="848a2a7332f7433d38c06b14497b40db"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11; font-size: 80%;">
+<p style="text-align:left"><span style="font-size:0.9em"><strong>Level 1:</strong> Provides supply chain visibility</span></p>
+
+<ul>
+	<li style="text-align:left"><span style="font-size:0.9em">Automated version control.</span></li>
+	<li><span style="font-size:0.9em">Automated build process.</span></li>
+	<li><span style="font-size:0.9em">Generate Provenance.</span></li>
+	<li><span style="font-size:0.9em">Provenance contains information</span></li>
+</ul>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 462px; left: 480px; top: 393.5px;" data-block-id="ae4c34c3d54bd94281edda2f3c2eaefa" data-name="text-9d6c48"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12; font-size: 80%;">
+<p style="text-align:left"><span style="font-size:0.9em"><strong>Level 4:</strong> Assurance of build integrity + dependency management</span></p>
+
+<ul>
+	<li><span style="font-size:0.9em">2 person review of all changes.</span></li>
+	<li><span style="font-size:0.9em">Hermetic/Reproducible builds.</span></li>
+	<li><span style="font-size:0.9em">Hardened build service.</span></li>
+	<li><span style="font-size:0.9em">Signed &amp; Non-falsifiable provenance</span></li>
+</ul>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 421px; left: 25px; top: 393.5px;" data-block-id="8b83594127fe261cd6ef187fb7ad91e6" data-name="text-d1babc"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 13; font-size: 80%;">
+<p style="text-align:left"><span style="font-size:0.9em"><strong>Level 3:</strong> Harden build infrastructure, integrate trust</span></p>
+
+<ul>
+	<li><span style="font-size:0.9em">Source/build platform meet standards.</span></li>
+	<li><span style="font-size:0.9em">Auditability of source/build.</span></li>
+	<li><span style="font-size:0.9em">Guaranteed integrity of provenance</span></li>
+</ul>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 433px; left: 480px; top: 171.5px;" data-block-id="9bfb84017e580eb5022fe16c1a947040" data-name="text-343fd7"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 14; font-size: 80%;">
+<p style="text-align:left"><span style="font-size:0.9em"><strong>Level 2:</strong> Protect against tampering, provide integrity of builds</span></p>
+
+<ul>
+	<li><span style="font-size:0.9em">Version control.</span></li>
+	<li><span style="font-size:0.9em">Hosted Build.</span></li>
+	<li><span style="font-size:0.9em">Signed provenance</span></li>
+</ul>
+</div></div>
+<div class="sl-block" data-block-type="line" style="width: auto; height: auto; min-width: 0px; min-height: 0px; left: 25px; top: 366.5px;" data-name="line-daeda9" data-block-id="2901bac63023766b6bbdd140243b392d"><div class="sl-block-content" data-line-x1="0" data-line-y1="0" data-line-x2="888" data-line-y2="0" data-line-color="#000000" data-line-start-type="none" data-line-end-type="none" style="z-index: 15;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveaspectratio="xMidYMid" width="888" height="1" viewbox="0 0 888 1"><line stroke="rgba(0,0,0,0)" stroke-width="15" x1="0" y1="0" x2="888" y2="0"></line><line class="line-element" stroke="#000000" stroke-width="2" x1="0" y1="0" x2="888" y2="0"></line></svg></div></div>
+<div class="sl-block" data-block-type="line" style="width: auto; height: auto; min-width: 0px; min-height: 0px; left: 446px; top: 171.5px;" data-block-id="6e6a02fbee20de92a230faa60d3ad623" data-name="line-5c64b2"><div class="sl-block-content" data-line-x1="0" data-line-y1="0" data-line-x2="0" data-line-y2="469.5" data-line-color="#000000" data-line-start-type="none" data-line-end-type="none" style="z-index: 16;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveaspectratio="xMidYMid" width="1" height="469.5" viewbox="0 0 1 469.5"><line stroke="rgba(0,0,0,0)" stroke-width="15" x1="0" y1="0" x2="0" y2="469.5"></line><line class="line-element" stroke="#000000" stroke-width="2" x1="0" y1="0" x2="0" y2="469.5"></line></svg></div></div></section><section data-id="83ae865da81e6e471c842f160a162135"><div class="sl-block" data-block-type="text" style="width: 768px; left: 96px; top: 192px; height: auto;" data-block-id="f66bf711519e21126428942729e582b6">
+							<div class="sl-block-content" style="text-align: left;line-height: 1.04;letter-spacing: -0.1em;font-size: 90%;" data-has-line-height="" data-has-letter-spacing="" data-placeholder-tag="p" data-placeholder-text="Text"><h1>SBOM: Software Bill-of-Materials 🧾</h1></div>
+						</div>
+<div class="sl-block" data-block-type="text" style="width: 768px; left: 96px; top: 392px; height: auto;" data-block-id="661bcfcf8510fefb6783f5ab1a208987">
+							<div class="sl-block-content" style="text-align: left;" data-placeholder-tag="p" data-placeholder-text="Text">
+								<ul>
+<li>Comprehensive inventory of software components</li>
+<li>Includes dependencies, versions, and licensing info</li>
+<li>Crucial for vulnerability management and compliance</li>
+</ul>
+							</div>
+						</div></section><section data-id="c86af2c91f61b811f5ee38f96f1ac48b"><div class="sl-block" data-block-type="image" style="width: 921.45px; height: 505.894px; left: 19.275px; top: 107.553px; min-width: 1px; min-height: 1px;" data-name="image-abc00d" data-block-id="7bf3e361b510f330476fed2c8c8929c2"><div class="sl-block-content" style="z-index: 10;"><img class="" data-natural-width="1020" data-natural-height="560" data-lazy-loaded="" data-src="pydelhi-july-2024/96fd330e9c95e160cac510a1e27201db.png"></div></div></section><section data-id="abb1ecc7153fbc34955319d8414e15ad"><div class="sl-block" data-block-type="text" style="width: 768px; left: 96px; top: 160px; height: auto;" data-block-id="fa99b5c64deb9bc75f05093cd1279127">
+							<div class="sl-block-content" style="text-align: left; line-height: 1.04; letter-spacing: -0.1em; font-size: 90%; z-index: 10;" data-has-line-height="" data-has-letter-spacing="" data-placeholder-tag="p" data-placeholder-text="Text"><h1>The Python SBOM 📜</h1></div>
+						</div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 768px; left: 96px; top: 268.5px;" data-name="text-ddd836" data-block-id="5c6e7527ba535ea3713a1fecd33d5df7"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11; text-align: left;"><ul>
+	<li>Included since CPython 3.12.2 and later releases</li>
+	<li>JSON file containing all SHA-256 checksums for all files</li>
+	<li>Names and versions of all software components</li>
+	<li>Dependency relationships between software components</li>
+	<li>Software identifiers (like <a href="https://nvd.nist.gov/products/cpe" target="_blank">CPE</a> and <a href="https://github.com/package-url/purl-spec" target="_blank">Package URLs</a>)</li>
+	<li>Download URLs for source code with checksums</li>
+</ul></div></div></section><section data-id="0fc417e15eb442259abdd743938f140c"><div class="sl-block" data-block-type="text" style="width: 768px; left: 96px; top: 160px; height: auto;" data-block-id="10fd7edf9e34ee61201c7274648c1dbd">
+							<div class="sl-block-content" style="text-align: left; line-height: 1.04; letter-spacing: -0.1em; font-size: 90%; z-index: 10;" data-has-line-height="" data-has-letter-spacing="" data-placeholder-tag="p" data-placeholder-text="Text"><h1>The Python SBOM 📜</h1></div>
+						</div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 768px; left: 96px; top: 268.5px;" data-name="text-ddd836" data-block-id="d906e308aa08e63d53f61db908db4767"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11; text-align: left;"><ul>
+	<li>Since OpenSSL is built differently across Windows and Linux/macOS, the Python Windows installers need different SBOMs</li>
+	<li>i.e., different SBOMs correspond to different sources</li>
+</ul></div></div></section><section data-id="85eb43d988b28fc38611797a6da0dda8"><div class="sl-block" data-block-type="text" style="width: 768px; left: 96px; top: 121.5px; height: auto;" data-block-id="aa96bc049965c4183b2bd7863b8bbe6a">
+							<div class="sl-block-content" style="text-align: left; line-height: 1.04; letter-spacing: -0.1em; font-size: 89%;" data-has-line-height="" data-has-letter-spacing="" data-placeholder-tag="p" data-placeholder-text="Text"><h1>How are the Scientific Python and the Python packaging ecosystems faring?</h1></div>
+						</div>
+<div class="sl-block" data-block-type="text" style="width: 768px; left: 96px; top: 453.5px; height: auto;" data-block-id="45c6cdcea299e2e37bd15c94a060dcb7">
+							<div class="sl-block-content" style="text-align: left;" data-placeholder-tag="p" data-placeholder-text="Text"><ul>
+	<li>
+<strong>Sigstore:</strong> provides verification and signing binaries</li>
+	<li>Coupled with GitHub: <strong>Artifact Attestations</strong>
+</li>
+	<li>Scientific Python Ecosystem Coordination (SPEC)-8: "Securing the Release Process" is underway</li>
+</ul></div>
+						</div></section><section data-id="7e6acd35fb00cf1f059174cd6a001b24"><div class="sl-block" data-block-type="text" style="width: 768px; left: 96px; top: 30px; height: auto;" data-block-id="a645067a203f3aa12e736cc0f573487c">
+							<div class="sl-block-content" style="text-align: center; line-height: 1.04; letter-spacing: -0.1em; font-size: 90%;" data-has-line-height="" data-has-letter-spacing="" data-placeholder-tag="p" data-placeholder-text="Text"><h1>What you can do ✅</h1></div>
+						</div>
+<div class="sl-block" data-block-type="text" style="width: 768px; left: 96px; top: 156.5px; height: auto;" data-block-id="10d6e953aec46a10b8f2063dd526df5f">
+							<div class="sl-block-content" style="text-align: center; line-height: 1.04; font-size: 90%;" data-has-line-height="" data-placeholder-tag="p" data-placeholder-text="Text"><h3>"The locus of control" maxim</h3></div>
+						</div>
+<div class="sl-block" data-block-type="text" style="width: 768px; left: 96px; top: 243px; height: auto;" data-block-id="5aa748b6ed704948b5c1ab5dccde3997">
+							<div class="sl-block-content" style="text-align: left;line-height: 1.04;letter-spacing: -0.1em;font-size: 90%;" data-has-line-height="" data-has-letter-spacing="" data-placeholder-tag="p" data-placeholder-text="Text">
+								<h2>Internal</h2>
+							</div>
+						</div>
+<div class="sl-block" data-block-type="text" style="width: 768px; left: 96px; top: 312.5px; height: auto;" data-block-id="52e07e444d3e6282ae8a26038ab91a00">
+							<div class="sl-block-content" style="text-align: left;" data-placeholder-tag="p" data-placeholder-text="Text"><ul>
+	<li>Learn to write secure code (don't store anything in plaintext, inculcate an adversarial mindset, and more)</li>
+	<li>
+	<p><em>Vet</em> your dependencies - Package your code properly - Check for wheels (and not sdists) to help mitigate(!) RCEs</p>
+	</li>
+	<li>Sign your binaries and releases</li>
+	<li>In some cases, even limit such processes to dedicated release managers</li>
+</ul></div>
+						</div>
+
+</section><section data-id="4e7ac40dbe9441db30bd81c3d7e38622"><div class="sl-block" data-block-type="text" style="width: 768px; left: 96px; top: 30px; height: auto;" data-block-id="acc76ee168e4adfae5fe202089e62705">
+							<div class="sl-block-content" style="text-align: center; line-height: 1.04; letter-spacing: -0.1em; font-size: 90%; z-index: 10;" data-has-line-height="" data-has-letter-spacing="" data-placeholder-tag="p" data-placeholder-text="Text"><h1>What you can do ✅</h1></div>
+						</div>
+<div class="sl-block" data-block-type="text" style="width: 768px; left: 96px; top: 156.5px; height: auto;" data-block-id="83cc700ee48096a2e6e247afafd3e457">
+							<div class="sl-block-content" style="text-align: center; line-height: 1.04; font-size: 90%; z-index: 11;" data-has-line-height="" data-placeholder-tag="p" data-placeholder-text="Text"><h3>"The locus of control" maxim</h3></div>
+						</div>
+<div class="sl-block" data-block-type="text" style="width: 768px; left: 96px; top: 250.5px; height: auto;" data-block-id="efaa9e960ddea8b9e26da098766e741b">
+							<div class="sl-block-content" style="text-align: right; line-height: 1.04; letter-spacing: -0.1em; font-size: 90%; z-index: 12;" data-has-line-height="" data-has-letter-spacing="" data-placeholder-tag="p" data-placeholder-text="Text"><h2>External</h2></div>
+						</div>
+<div class="sl-block" data-block-type="text" style="width: 768px; left: 96px; top: 318.5px; height: auto;" data-block-id="621effff42b47908aed1dad28604bd26">
+							<div class="sl-block-content" style="text-align: left; z-index: 13;" data-placeholder-tag="p" data-placeholder-text="Text"><ul>
+	<li>Always build your binaries on ephemeral systems (CI providers) – never do so on your own system</li>
+	<li>
+	<p style="color:rgb(0, 0, 0)">Aim for higher levels of SLSA provenance</p>
+	</li>
+	<li>
+	<p style="color:rgb(0, 0, 0)">Use tooling that your code hosting solution provides (GitHub/GitLab/BitBucket/etc.) for provenance</p>
+	</li>
+	<li>
+	<p style="color:rgb(0, 0, 0)">Try to score on the OpenSSF scorecards and follow up on the <a href="https://github.com/ossf/wg-best-practices-os-developers" target="_blank">OpenSSF's best practices</a></p>
+	</li>
+</ul></div>
+						</div>
+
+</section><section data-id="cf9a4a95b0ffba2272042f1f58a06cb3"><div class="sl-block" data-block-type="text" style="width: 768px; left: 96px; top: 110px; height: auto;" data-block-id="90250fe79b282bc0032cced1fe800f9b">
+							<div class="sl-block-content" style="text-align: left; line-height: 1.04; letter-spacing: -0.1em; font-size: 90%; z-index: 10;" data-has-line-height="" data-has-letter-spacing="" data-placeholder-tag="p" data-placeholder-text="Text"><h1>About me 😁</h1></div>
+						</div>
+<div class="sl-block" data-block-type="text" style="width: 768px; left: 96px; top: 240px; height: auto;" data-block-id="e33eec8ea86e4317997b47d2da07b30c">
+							<div class="sl-block-content" style="text-align: left; line-height: 1.04; font-size: 90%; z-index: 11;" data-has-line-height="" data-placeholder-tag="p" data-placeholder-text="Text"><h3>Agriya Khetarpal</h3></div>
+						</div>
+<div class="sl-block" data-block-type="text" style="width: 825.2px; left: 96px; top: 309px; height: auto;" data-block-id="eecab1bc1160f81842bc1636243b6a3b">
+							<div class="sl-block-content" style="text-align: left; z-index: 12;" data-placeholder-tag="p" data-placeholder-text="Text"><ul>
+	<li>Software engineer at Quansight</li>
+	<li>Privileged to contribute to the open source<br>
+	Scientific Python and Pyodide ecosystems</li>
+	<li>Interested in
+	<ul>
+		<li>Python packaging 📦🐍</li>
+		<li>Scientific computing ➗🧪</li>
+		<li>Documentation 📝🌉</li>
+		<li>...and more 👾</li>
+	</ul>
+	</li>
+</ul></div>
+						</div>
+<div class="sl-block" data-block-type="image" style="width: 322.252px; height: 49.412px; left: 598.948px; top: 233.794px; min-width: 1px; min-height: 1px;" data-name="image-e41032" data-block-id="5dc03f0119b2e082921fd93e3af9bcff"><div class="sl-block-content" style="z-index: 13;"><img class="" data-natural-width="300" data-natural-height="46" data-lazy-loaded="" data-src="pydelhi-july-2024/f1f39a5769b4871f7a98e2a2895b2a4e.png"></div></div></section><section data-id="9c37fe62dea1c154616ab84e34f3c964"><div class="sl-block" data-block-type="text" style="width: 782px; left: 96px; top: 65.5px; height: auto;" data-block-id="902d8f87d2baa0a89e11ec6ceb1d8bbc">
+							<div class="sl-block-content" style="text-align: left; line-height: 1.04; letter-spacing: -0.1em; font-size: 90%; z-index: 10;" data-has-line-height="" data-has-letter-spacing="" data-placeholder-tag="p" data-placeholder-text="Text"><h1>Thank you for your time!</h1></div>
+						</div>
+<div class="sl-block" data-block-type="text" style="width: 422px; left: 121.691px; top: 200.5px; height: auto;" data-block-id="66a66af6a1bcc033e66b2545acf24820">
+							<div class="sl-block-content" style="text-align: left; z-index: 11;" data-placeholder-tag="p" data-placeholder-text="Text"><p>Please feel free to say hello!</p></div>
+						</div>
+
+<div class="sl-block" data-block-type="text" style="width: 268.858px; left: 653.915px; top: 431.453px; height: auto;" data-block-id="1354339ff666a90abdd5dde9e867489f">
+							<div class="sl-block-content" style="text-align: right; z-index: 12;" data-placeholder-tag="p" data-placeholder-text="Text"><p><em>Need these slides? </em></p></div>
+						</div>
+
+<div class="sl-block" data-block-type="image" style="width: 53.406px; height: 53.406px; left: 122px; top: 265px; min-width: 1px; min-height: 1px;" data-name="image-64dd63" data-block-id="e3d27ecd9b1eb7e4d691b1e18a76716f"><div class="sl-block-content" style="z-index: 13;"><img class="" data-natural-width="1200" data-natural-height="1200" data-lazy-loaded="" data-src="pydelhi-july-2024/07a0049188c6004d77d9d2cfa42ab5e7.png"></div></div>
+<div class="sl-block" data-block-type="image" style="width: 107.43px; height: 45.187px; left: 68.285px; top: 327.406px; min-width: 1px; min-height: 1px;" data-name="image-983d7c" data-block-id="24b01dce23c4afb7e3ef76f95d6dd40b"><div class="sl-block-content" style="z-index: 14;"><img class="" data-natural-width="485" data-natural-height="204" data-lazy-loaded="" data-src="pydelhi-july-2024/c6654756a540b5fc41502c82cd14af09.png"></div></div>
+<div class="sl-block" data-block-type="image" style="width: 53.715px; height: 53.715px; left: 122.142px; top: 381.142px; min-width: 1px; min-height: 1px;" data-name="image-9784d6" data-block-id="99d0b60f0c35061681667af9d15d19cb"><div class="sl-block-content" style="z-index: 15;"><img class="" data-natural-width="1024" data-natural-height="1024" data-lazy-loaded="" data-src="pydelhi-july-2024/e4366bfbddfd0e3d1c6f8447996b99c1.png"></div></div>
+<div class="sl-block" data-block-type="text" style="width: 311px; left: 204px; top: 272.5px; height: auto;" data-block-id="d599775937b167af9d0ae8adf4555657" data-name="text-7502e4">
+							<div class="sl-block-content" style="text-align: left; z-index: 16; color: rgb(0, 0, 0);" data-placeholder-tag="p" data-placeholder-text="Text"><p><strong>in/agriyakhetarpal</strong></p></div>
+						</div>
+<div class="sl-block" data-block-type="text" style="width: 290px; left: 204px; top: 330.5px; height: auto;" data-block-id="37a7c3c435a2b6786eded1c43e0196a0" data-name="text-296e6e">
+							<div class="sl-block-content" style="text-align: left; z-index: 17; color: rgb(0, 0, 0);" data-placeholder-tag="p" data-placeholder-text="Text"><p><strong>agriyakhetarpal</strong></p></div>
+						</div>
+<div class="sl-block" data-block-type="text" style="width: 276px; left: 204px; top: 388.5px; height: auto;" data-block-id="7ab44a8cf1dcb1f1cd8ef0ca45795a4d" data-name="text-1c30da">
+							<div class="sl-block-content" style="text-align: left; z-index: 18; color: rgb(0, 0, 0);" data-placeholder-tag="p" data-placeholder-text="Text"><p><strong>agriyakhetarpal</strong></p></div>
+						</div>
+<div class="sl-block" data-block-type="image" style="width: 200px; height: 200px; left: 727.5px; top: 470.453px; min-width: 1px; min-height: 1px;" data-name="image-2065be" data-block-id="661f53c132d754b2204bcd0c685878f6"><div class="sl-block-content" style="z-index: 19;"><img class="" data-natural-width="1023" data-natural-height="1023" data-lazy-loaded="" data-src="pydelhi-july-2024/d7f01ed12a3a73d3856388ecbf5e967c.png"></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 526px; left: 122.142px; top: 455.406px;" data-name="text-5a5b87" data-block-id="6a124613f35046152de0683ebb231ee4"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 20; font-size: 85%; letter-spacing: -0.04em;" data-has-letter-spacing=""><pre><span style="font-size:0.9em">agriyakhetarpal [at] outlook [dot] com</span></pre></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 409px; left: 121.691px; top: 606px;" data-name="text-1a01ea" data-block-id="ecfa4c5ea87a5b3d77d3687c79bfeb4f"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 21; line-height: 0.858;" data-has-line-height=""><p style="text-align:left"><span style="font-size:0.5em">Content licensed under CC-by-SA Attribution-ShareAlike Version 4.0 International License</span></p></div></div>
+<div class="sl-block" data-block-type="image" style="width: 142.207px; height: 50.128px; left: 121.691px; top: 555.872px; min-width: 1px; min-height: 1px;" data-name="image-938fa4" data-block-id="574f3e4a57e043fb9a40c8cc9c6b886d"><div class="sl-block-content" style="z-index: 22;"><img class="" data-natural-width="800" data-natural-height="282" data-lazy-loaded="" data-src="pydelhi-july-2024/95b4a5d2b96b64e44e33dd41eca32c43.png"></div></div>
+<div class="sl-block" data-block-type="image" style="width: 200px; height: 200px; left: 727.5px; top: 211.5px; min-width: 1px; min-height: 1px;" data-name="image-4afa02" data-block-id="01b1304161c09982e25b1e19fbe7edd9"><div class="sl-block-content" style="z-index: 23;"><img class="" data-natural-width="1015" data-natural-height="1015" data-lazy-loaded="" data-src="pydelhi-july-2024/e60dd277f613603fec2032cdfbb5c2b1.png"></div></div>
+<div class="sl-block" data-block-type="text" style="width: 268.858px; left: 653.915px; top: 169px; height: auto;" data-block-id="05ec40a29b14cdeaf713f734c8e02127" data-name="text-870784">
+							<div class="sl-block-content" style="text-align: right; z-index: 24;" data-placeholder-tag="p" data-placeholder-text="Text"><p><em>Further readings</em></p></div>
+						</div></section>
+			</div>
+		</div>
+
+		<script>
+			var SLConfig = {"deck": {"id":3231355,"slug":"pydelhi-july-2024","title":"Let's shadow a Python release: insights from packaging, distribution, and supply-chain security","description":"","width":960,"height":700,"margin":0.05,"visibility":"all","published_at":"2024-07-19T17:48:10.434Z","sanitize_messages":null,"thumbnail_url":"https://s3.amazonaws.com/media-p.slid.es/thumbnails/3e261306a2449cf655beac49d33d830c/thumb.jpg?1721411353","view_count":216,"user":{"id":2563784,"username":"agriyakhetarpal","name":"Agriya Khetarpal","description":null,"thumbnail_url":"https://lh3.googleusercontent.com/a/ACg8ocJKS23_HYPxOYEpKzm553V78kUGtNrVbwxnAXpSOg5pKm8=s96-c","account_type":"lite","team_id":null,"settings":{"id":57161875,"present_controls":true,"present_upsizing":true,"present_pointer":true,"present_notes":true,"default_deck_tag_id":null}},"background_transition":"slide","transition":"slide","theme_id":null,"theme_font":"opensans","theme_color":"white-blue","auto_slide_interval":0,"comments_enabled":false,"forking_enabled":true,"rolling_links":false,"center":false,"shuffle":false,"should_loop":false,"share_notes":false,"slide_number":false,"slide_count":43,"rtl":false,"version":2,"collaborative":null,"deck_user_editor_limit":1,"data_updated_at":1726437817203,"font_typekit":null,"font_google":null,"time_limit":null,"navigation_mode":"default","upsizing_enabled":true,"language":"en","notes":{"b7ba88e4657d5b788bc734eb3f2241a2":"","c5b25f5801f88971af166ec950a67e5e":"","a017f98774ec35081152b01b898bed62":"","6b74fef77a067bea003cf7344426184b":"","600867f0509d65420d55e646338aa454":"","d63fe27dacee21e3bb7cf9afd80545b2":"","7a9ff3ee6ee327f3dfac6186c728a27a":"","0cb54a331027dd0981c0e4e7e1ca07e0":"","3b0e42f803796bca4dcaae4a5f9b71b9":"","11fc574e371001c64bae8a44205703af":"","20a0dfad87ed7fea5428529720bef747":"","625e5c74820470c4804a8aa136e8ecb4":"","30796e1f5a3b7f70ecf2e76bc5810b74":"","e825db060e95c6f1ad046281b6a86939":"","418a0ef15344572d9beca40944814e9f":"","f88a6564d4525df2bf1bc4e94f713ba5":"","af16e45496590a95bace0857d3d96608":"","9ac835991cb4fb8b4b2fb7ae8555269c":"","f13377be172b83bc3075d36b4f6e4f6e":"","501e5bcb10bca69c73ae9f5cd3e8d2d9":"","b70eeebbb5dacc0eb599df2ff7a73062":"","d435da73635d32cf4228abd360012a25":"","9c74652f3d37f1653cc2f08807a19402":"","7f07297b6443423ee913c0e14323f397":"","636876aa96a02d107fab6c9b859124e8":"","c2f532d4445f2bf2af850ecb65178548":"","66bfc2775800c711113ac4839968a8ce":"","05c74adb58c6ae193b8286d7fe07d15d":"","d5d6e194a97a3b899f8fd6149d38b5bf":"","2fb9da6fceb7533da82d9aee83216b74":"","ff6ec3613f717a2b3543f48ba260328c":"","8f9e90cc7893cf391481a7b1d08c80b3":""}}};
+
+
+			// Use local fonts
+			SLConfig.fonts_url = 'lib/fonts/';
+		</script>
+
+		<script src="lib/reveal.js"></script>
+		<script src="lib/reveal-plugins.js"></script>
+		<script src="lib/offline.js"></script>
+
+		<!-- Initialize the presentation -->
+		<script>
+			Reveal.initialize({
+				width: 960,
+				height: 700,
+				margin: 0.05,
+				
+
+				hash: true,
+				controls: true,
+				progress: true,
+				mouseWheel: false,
+				showNotes: false,
+				slideNumber: false,
+				fragmentInURL: true,
+
+				autoSlide: 0,
+				autoSlideStoppable: true,
+
+				autoAnimateMatcher: SL.deck.AutoAnimate.matcher,
+
+				scrollActivationWidth: null,
+
+				center: false,
+				shuffle: false,
+				loop: false,
+				rtl: false,
+				navigationMode: "default",
+
+				transition: "slide",
+				backgroundTransition: "slide",
+
+				highlight: {
+					escapeHTML: false
+				},
+
+				plugins: [ RevealZoom, RevealNotes, RevealMarkdown, RevealHighlight ]
+			});
+		</script>
+
+		
+
+
+	</body>
+</html>
